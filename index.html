@@ -72,13 +72,43 @@ dd{margin:0; color:var(--muted)}
 .btn.main:hover{background:var(--ink); border-color:var(--ink); color:var(--bg)}
 
 footer{border-top:1px solid var(--line); padding-top:1.25rem; color:var(--muted); font-size:.95rem}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* === РУХ === */
+
+/* 1. Анімація заголовка при відкритті.
+   @keyframes описує, з чого починається рух. Кінцевий стан — це звичайний вигляд елемента.
+   Число після назви (.7s) — тривалість, друге (.25s) — затримка перед стартом. */
+@keyframes drop{from{opacity:0;transform:translateY(-.4em)}}
+@keyframes rise{from{opacity:0;transform:translateY(.4em)}}
+.hero h1 span{animation:drop .7s cubic-bezier(.2,.8,.2,1) both}
+.line2{display:inline-block; font-weight:inherit; animation:rise .8s .25s cubic-bezier(.2,.8,.2,1) both}
+
+/* 2. Плавна поява розділів при прокручуванні.
+   Спочатку розділ прозорий і трохи нижче, а клас .visible повертає його на місце. */
+.reveal{opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease}
+.reveal.visible{opacity:1; transform:none}
+
+/* 3. Реакція на курсор: сяйво за мишкою й рядки, що зсуваються при наведенні. */
+main{position:relative; z-index:1}
+.glow{
+  position:fixed; inset:0; pointer-events:none; z-index:0;
+  background:radial-gradient(520px circle at var(--mx,50%) var(--my,25%), color-mix(in srgb, var(--accent) 20%, transparent), transparent 65%);
+}
+.row{transition:transform .25s ease}
+.row:hover{transform:translateX(10px)}
+.row:hover dt{color:var(--accent)}
+
+/* Для людей, яким рух заважає, все вимикається. */
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important; animation:none!important}
+  .reveal{opacity:1; transform:none}
+}
 </style>
 </head>
 <body>
+<div class="glow" aria-hidden="true"></div>
 <main>
   <header class="hero">
-    <h1><span>Костіков</span><br>Назар</h1>
+    <h1><span>Костіков</span><br><b class="line2">Назар</b></h1>
     <p>Українець у Чехії. Вчуся створювати сайти й застосунки разом із ШІ. Це мій перший власний сайт.</p>
   </header>
 
@@ -110,5 +140,27 @@ footer{border-top:1px solid var(--line); padding-top:1.25rem; color:var(--muted)
 
   <footer>© 2026 Костіков Назар</footer>
 </main>
+<script>
+  // Крок 2: кожному розділу додаємо клас reveal (він ховає розділ),
+  // а IntersectionObserver стежить, коли розділ з'являється на екрані, і додає клас visible.
+  const sections = document.querySelectorAll('section');
+  sections.forEach(s => s.classList.add('reveal'));
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  sections.forEach(s => observer.observe(s));
+
+  // Крок 3: коли миша рухається, записуємо її координати в змінні --mx і --my.
+  // CSS використовує їх, щоб посунути сяйво за курсором.
+  window.addEventListener('pointermove', e => {
+    document.documentElement.style.setProperty('--mx', e.clientX + 'px');
+    document.documentElement.style.setProperty('--my', e.clientY + 'px');
+  });
+</script>
 </body>
 </html>
