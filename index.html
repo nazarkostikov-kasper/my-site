@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Костіков Назар — особистий сайт</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f7fb; --ink:#14213d; --muted:#53607d; --line:#d5d9e6;
+  --accent:#2f4bff; --on-accent:#ffffff; --mint:#7cf2c6;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1424; --ink:#eef1fb; --muted:#9aa6c4; --line:#27304a;
+    --accent:#7d92ff; --on-accent:#0e1424; --mint:#7cf2c6; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1424; --ink:#eef1fb; --muted:#9aa6c4; --line:#27304a;
+  --accent:#7d92ff; --on-accent:#0e1424; --mint:#7cf2c6; color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:1.125rem; line-height:1.6;
+}
+main{max-width:46rem; margin:0 auto; padding:0 1.25rem 4rem}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--accent); outline-offset:3px}
+
+.notice{display:block; margin-top:1.25rem; padding:.85rem 1.1rem; border-radius:.9rem; background:var(--mint); color:#0e1424; text-decoration:none; font-weight:600; font-size:1rem; line-height:1.45}
+.notice:hover{text-decoration:underline}
+.hero{padding:3rem 0 3rem}
+.hero h1{
+  margin:0; font-weight:800; line-height:.95; letter-spacing:-.03em;
+  font-size:clamp(3rem,13vw,6.5rem);
+}
+.hero h1 span{
+  display:inline-block; background:var(--accent); color:var(--on-accent);
+  padding:.04em .16em .1em; margin-left:-.16em; border-radius:.12em;
+}
+.hero p{margin:1.75rem 0 0; max-width:34rem; color:var(--muted); font-size:1.3rem}
+
+section{border-top:1px solid var(--line); padding:2.25rem 0}
+h2{margin:0 0 1rem; font-size:1.5rem; font-weight:600; letter-spacing:-.01em}
+section p{margin:0; max-width:36rem}
+
+dl{margin:0}
+.row{display:grid; grid-template-columns:1fr; gap:.15rem; padding:1rem 0; border-top:1px solid var(--line)}
+.row:first-child{border-top:0; padding-top:0}
+dt{font-weight:600}
+dd{margin:0; color:var(--muted)}
+@media(min-width:36rem){.row{grid-template-columns:12rem 1fr; gap:1.5rem}}
+
+.contacts{display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.25rem}
+.btn{
+  display:inline-block; padding:.7rem 1.2rem; border-radius:999px;
+  border:2px solid var(--ink); text-decoration:none; font-weight:600;
+  transition:background .15s,color .15s;
+}
+.btn:hover{background:var(--ink); color:var(--bg)}
+.btn.main{background:var(--mint); border-color:var(--mint); color:#0e1424}
+.btn.main:hover{background:var(--ink); border-color:var(--ink); color:var(--bg)}
+
+footer{border-top:1px solid var(--line); padding-top:1.25rem; color:var(--muted); font-size:.95rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <header class="hero">
+    <h1><span>Костіков</span><br>Назар</h1>
+    <p>Українець у Чехії. Вчуся створювати сайти й застосунки разом із ШІ. Це мій перший власний сайт.</p>
+  </header>
+
+  <section>
+    <h2>Про мене</h2>
+    <p>Я родом з України, зараз живу й працюю на заводі в Чехії. Паралельно вчуся вайбкодингу: хочу навчитися створювати власні сайти та програми.</p>
+  </section>
+
+  <section>
+    <h2>Чим я займаюся</h2>
+    <dl>
+      <div class="row"><dt>Навчаюся</dt><dd>Вайбкодинг: описую ідею словами й разом із Claude перетворюю її на робочий код.</dd></div>
+      <div class="row"><dt>Створюю</dt><dd>Перший сайт, а далі невеликі застосунки для власних потреб.</dd></div>
+      <div class="row"><dt>Цікавлюся</dt><dd>Додай сюди свої інтереси: музику, спорт, подорожі, ігри.</dd></div>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Зв’язатися</h2>
+    <p>Напиши мені, якщо хочеш обговорити ідею чи просто привітатися.</p>
+    <p style="margin-top:.75rem"><strong>Telegram-група:</strong> тут я повідомляю та публікую уроки й успіхи свого навчання.</p>
+    <div class="contacts">
+      <a class="btn main" href="mailto:name@example.com">Написати листа</a>
+      <a class="btn" href="https://t.me/+G8fqN585xYUxMmEy">Telegram-група</a>
+      <a class="btn" href="https://github.com/">GitHub</a>
+    </div>
+  </section>
+
+  <footer>© 2026 Костіков Назар</footer>
+</main>
+</body>
+</html>
