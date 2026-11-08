@@ -65,9 +65,9 @@ dd{margin:0; color:var(--muted)}
 .btn{
   display:inline-block; padding:.7rem 1.2rem; border-radius:999px;
   border:2px solid var(--ink); text-decoration:none; font-weight:600;
-  transition:background .15s,color .15s;
+  transition:background .15s,color .15s;,transform .15s
 }
-.btn:hover{background:var(--ink); color:var(--bg)}
+.btn:hover{background:var(--ink); color:var(--bg);transform:scale(1.08)
 .btn.main{background:var(--mint); border-color:var(--mint); color:#0e1424}
 .btn.main:hover{background:var(--ink); border-color:var(--ink); color:var(--bg)}
 
@@ -77,10 +77,10 @@ footer{border-top:1px solid var(--line); padding-top:1.25rem; color:var(--muted)
 /* 1. Анімація заголовка при відкритті.
    @keyframes описує, з чого починається рух. Кінцевий стан — це звичайний вигляд елемента.
    Число після назви (.7s) — тривалість, друге (.25s) — затримка перед стартом. */
-@keyframes drop{from{opacity:0;transform:translateY(-.4em)}}
+@keyframes drop{from{opacity:0;transform:translateY(-.1.5em)}}
 @keyframes rise{from{opacity:0;transform:translateY(.4em)}}
-.hero h1 span{animation:drop .12s cubic-bezier(.2,.8,.2,1) both}
-.line2{display:inline-block; font-weight:inherit; animation:rise .8s .25s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 span{animation:drop .12s ease-in-out both(.2,.8,.2,1) both}
+.line2{display:inline-block; font-weight:inherit; animation:rise .8s .1s cubic-bezier(.2,.8,.2,1) both}
 
 /* 2. Плавна поява розділів при прокручуванні.
    Спочатку розділ прозорий і трохи нижче, а клас .visible повертає його на місце. */
@@ -91,10 +91,10 @@ footer{border-top:1px solid var(--line); padding-top:1.25rem; color:var(--muted)
 main{position:relative; z-index:1}
 .glow{
   position:fixed; inset:0; pointer-events:none; z-index:0;
-  background:radial-gradient(400px circle at var(--mx,50%) var(--my,25%), color-mix(in srgb, var(--accent) 20%, transparent), transparent 65%);
+  background:radial-gradient(400px circle at var(--mx,50%) var(--my,25%), color-mix(in srgb, #a855f7 60%, transparent), transparent 65%);
 }
 .row{transition:transform .25s ease}
-.row:hover{transform:translateX(15px)}
+.row:hover{transform:translateX(15px)} rotate(-2deg)
 .row:hover dt{color:var(--accent)}
 
 /* Для людей, яким рух заважає, все вимикається. */
