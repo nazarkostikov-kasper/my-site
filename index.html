@@ -79,7 +79,7 @@ footer{border-top:1px solid var(--line); padding-top:1.25rem; color:var(--muted)
    Число після назви (.7s) — тривалість, друге (.25s) — затримка перед стартом. */
 @keyframes drop{from{opacity:0;transform:translateY(-.4em)}}
 @keyframes rise{from{opacity:0;transform:translateY(.4em)}}
-.hero h1 span{animation:drop .2s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 span{animation:drop .12s cubic-bezier(.2,.8,.2,1) both}
 .line2{display:inline-block; font-weight:inherit; animation:rise .8s .25s cubic-bezier(.2,.8,.2,1) both}
 
 /* 2. Плавна поява розділів при прокручуванні.
@@ -91,10 +91,10 @@ footer{border-top:1px solid var(--line); padding-top:1.25rem; color:var(--muted)
 main{position:relative; z-index:1}
 .glow{
   position:fixed; inset:0; pointer-events:none; z-index:0;
-  background:radial-gradient(900px circle at var(--mx,50%) var(--my,25%), color-mix(in srgb, var(--accent) 20%, transparent), transparent 65%);
+  background:radial-gradient(400px circle at var(--mx,50%) var(--my,25%), color-mix(in srgb, var(--accent) 20%, transparent), transparent 65%);
 }
 .row{transition:transform .25s ease}
-.row:hover{transform:translateX(30px)}
+.row:hover{transform:translateX(15px)}
 .row:hover dt{color:var(--accent)}
 
 /* Для людей, яким рух заважає, все вимикається. */
