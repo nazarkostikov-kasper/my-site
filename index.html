@@ -57,7 +57,7 @@ section p{margin:0; max-width:36rem}
 dl{margin:0}
 .row{display:grid; grid-template-columns:1fr; gap:.15rem; padding:1rem 0; border-top:1px solid var(--line)}
 .row:first-child{border-top:0; padding-top:0}
-dt{font-weight:600}
+dt{font-weight:600; color:#6ee7d8}}
 dd{margin:0; color:var(--muted)}
 @media(min-width:36rem){.row{grid-template-columns:12rem 1fr; gap:1.5rem}}
 
@@ -94,8 +94,8 @@ main{position:relative; z-index:1}
   background:radial-gradient(400px circle at var(--mx,50%) var(--my,25%), color-mix(in srgb, #a855f7 60%, transparent), transparent 65%);
 }
 .row{transition:transform .25s ease}
-.row:hover{transform:translateX(15px) rotate(-2deg)}
-.row:hover dt{color:#7cf2c6}
+.row:hover{transform:translateX(15px)}
+.row:hover dt{color:#6ee7d8}
 /* Для людей, яким рух заважає, все вимикається. */
 @media (prefers-reduced-motion:reduce){
   *{transition:none!important; animation:none!important}
